@@ -25,11 +25,20 @@ export default class ProductDetails {
 
     document.querySelector('.product-card__price').textContent =
       `$${this.product.FinalPrice}`;
+    
+const discount = Math.round(
+  ((this.product.SuggestedRetailPrice - this.product.FinalPrice) /
+    this.product.SuggestedRetailPrice) *
+    100
+);
+
+document.querySelector('.product-card__discount').textContent =
+  discount > 0 ? `${discount}% OFF` : '';
 
     document.querySelector('.product__color').textContent =
       this.product.Colors[0].ColorName;
 
-    document.querySelector('.product__description').textContent =
+    document.querySelector('.product__description').innerHTML =
       this.product.DescriptionHtmlSimple;
   }
 addProductToCart() {
