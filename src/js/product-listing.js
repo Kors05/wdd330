@@ -12,7 +12,7 @@ async function searchProducts() {
   }
 
   try {
-    const response = await fetch("../json/tents.json");
+    const response = await fetch("/json/tents.json");
 
     if (!response.ok) {
       throw new Error(`Could not load products: ${response.status}`);
